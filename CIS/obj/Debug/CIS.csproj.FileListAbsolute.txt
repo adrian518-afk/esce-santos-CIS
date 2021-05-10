@@ -1,0 +1,14 @@
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\bin\Debug\CIS.exe.config
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\bin\Debug\CIS.exe
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\bin\Debug\CIS.pdb
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.frmAddCitizen.resources
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.frmDashboard.resources
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.Properties.Resources.resources
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.csproj.GenerateResource.Cache
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.exe
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.pdb
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.csprojAssemblyReference.cache
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.csproj.CoreCompileInputs.cache
+C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.csproj.CopyComplete
