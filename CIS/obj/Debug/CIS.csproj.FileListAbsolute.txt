@@ -12,3 +12,18 @@ C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\bin\Debug\Microsof
 C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.csprojAssemblyReference.cache
 C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.csproj.CoreCompileInputs.cache
 C:\Users\Adrian\Documents\Visual Studio 2012\Projects\CIS\CIS\obj\Debug\CIS.csproj.CopyComplete
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\bin\Debug\CIS.exe.config
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\bin\Debug\CIS.exe
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\bin\Debug\CIS.pdb
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\obj\Debug\CIS.csprojAssemblyReference.cache
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\obj\Debug\CIS.frmAddCitizen.resources
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\obj\Debug\CIS.frmDashboard.resources
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\obj\Debug\CIS.Properties.Resources.resources
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\obj\Debug\CIS.csproj.GenerateResource.cache
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\obj\Debug\CIS.csproj.CoreCompileInputs.cache
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\obj\Debug\CIS.csproj.CopyComplete
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\obj\Debug\CIS.exe
+C:\Users\Adrian\Source\Repos\esce-santos-CIS\CIS\obj\Debug\CIS.pdb
