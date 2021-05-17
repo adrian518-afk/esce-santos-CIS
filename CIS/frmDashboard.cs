@@ -99,7 +99,6 @@ namespace CIS
             cmbProvince.Text = "ABRA";
 
             btnAdd.Text = "ADD";
-            btnEdit.Text = "EDIT";
             txtFirstName.Text = "Firstname";
             txtLastName.Text = "Lastname";
             txtEmail.Text = "Email";
@@ -161,6 +160,7 @@ namespace CIS
             txtFirstName.Enabled =
             txtLastName.Enabled =
             txtEmail.Enabled =
+            txtSchool.Enabled =
             cmbProvince.Enabled = false;
         }
         private void enableTextBoxes()
@@ -168,12 +168,14 @@ namespace CIS
             txtFirstName.Enabled =
             txtLastName.Enabled =
             txtEmail.Enabled =
+            txtSchool.Enabled =
             cmbProvince.Enabled = true;
         }
         private void clearTextBoxes()
         {
             txtFirstName.Text =
             txtLastName.Text =
+            txtSchool.Text =
             txtEmail.Text = "";
             cmbProvince.Text = "ABRA";
         }
@@ -213,9 +215,11 @@ namespace CIS
             btnAdd.BackColor = Color.Gray;
             txtFirstName.Font =
             txtLastName.Font =
+            txtSchool.Font =
             txtEmail.Font = new Font(txtFirstName.Font, FontStyle.Regular);
             txtFirstName.ForeColor = 
             txtLastName.ForeColor =
+            txtSchool.ForeColor =
             txtEmail.ForeColor = Color.White;
             enableTextBoxes();
         }
@@ -270,6 +274,7 @@ namespace CIS
                 txtEmail.Text = dataGridMain.CurrentRow.Cells["Email"].Value.ToString();
                 cmbProvince.Text = dataGridMain.CurrentRow.Cells["Province"].Value.ToString();
                 cmbProvince.SelectedText = dataGridMain.CurrentRow.Cells["Province"].Value.ToString();
+                txtSchool.Text = dataGridMain.CurrentRow.Cells["School"].Value.ToString();
                 datePickerAge.Value = stringToDate(dataGridMain.CurrentRow.Cells["Birthday"].Value.ToString());
             }
         }
@@ -321,7 +326,7 @@ namespace CIS
 
         private void btnEdit_Click_1(object sender, EventArgs e)
         {
-            bool isNullSafe = txtFirstName.Text.Trim() != "" && txtLastName.Text.Trim() != "" && txtEmail.Text.Trim() != "";
+            bool isNullSafe = txtFirstName.Text.Trim() != "" && txtLastName.Text.Trim() != "" && txtEmail.Text.Trim() != "" && txtSchool.Text.Trim() != "";
 
             if (isNullSafe)
             {
@@ -329,13 +334,14 @@ namespace CIS
                 {
                     sqlCon.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"UPDATE RefTblCitizen SET first_name = @first_name, last_name = @last_name, province = @province, birthdate = @birthdate, age = @age, email = @email WHERE id = @id", sqlCon);
+                    SqlCommand cmd = new SqlCommand(@"UPDATE RefTblCitizen SET first_name = @first_name, last_name = @last_name, province = @province, birthdate = @birthdate, age = @age, email = @email, school = @school WHERE id = @id", sqlCon);
 
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@id", lblID.Text);
                     cmd.Parameters.AddWithValue("@first_name", txtFirstName.Text);
                     cmd.Parameters.AddWithValue("@last_name", txtLastName.Text);
                     cmd.Parameters.AddWithValue("@province", cmbProvince.Text);
+                    cmd.Parameters.AddWithValue("@school", txtSchool.Text);
                     cmd.Parameters.AddWithValue("@birthdate", datePickerAge.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@age", computeAge(datePickerAge.Value));
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
@@ -390,40 +396,45 @@ namespace CIS
             {
                 txtSearchBox.Font = new Font(txtSchool.Font, FontStyle.Regular);
                 txtSearchBox.ForeColor = Color.Black;
+
+                using (SqlConnection sqlCon = new SqlConnection(CONFIG.StringConnetion))
+                {
+                    sqlCon.Open();
+
+                    SqlDataAdapter da = new SqlDataAdapter(@"SELECT id, ISNULL(first_name, '') +' ' + ISNULL(last_name, '') AS Name, first_name as FirstName, last_name as LastName, province AS Province, age AS Age, school as School, email as Email,  birthdate as Birthday FROM RefTblCitizen WHERE(first_name LIKE '%" + txtSearchBox.Text + "%' OR last_name LIKE '%" + txtSearchBox.Text + "%' OR province LIKE '%" + txtSearchBox.Text + "%' OR email LIKE '%" + txtSearchBox.Text + "%' OR school LIKE '%" + txtSearchBox.Text + "%') AND citizen_is_deleted = 0;", sqlCon);
+
+                    DataTable tbl = new DataTable();
+
+
+
+                    da.Fill(tbl);
+
+
+                    dataGridMain.DataSource = tbl;
+                    dataGridMain.Columns[0].Visible = false;
+                    dataGridMain.Columns[2].Visible = false;
+                    dataGridMain.Columns[3].Visible = false;
+                    dataGridMain.Columns[5].Width = 100;
+                    dataGridMain.ReadOnly = true;
+
+                    lblRecordCount.Text = dataGridMain.Rows.Count.ToString();
+
+                    if (dataGridMain.RowCount == 0)
+                    {
+                        txtNoRecords.Visible = true;
+                    }
+                    else
+                    {
+                        txtNoRecords.Visible = false;
+                    }
+
+                }
+            }
+            else {
+                LoadCitizenInfo();
             }
 
-            using (SqlConnection sqlCon = new SqlConnection(CONFIG.StringConnetion))
-            {
-                sqlCon.Open();
-
-                SqlDataAdapter da = new SqlDataAdapter(@"SELECT id, ISNULL(first_name, '') +' ' + ISNULL(last_name, '') AS Name, first_name as FirstName, last_name as LastName, province AS Province, age AS Age, school as School, email as Email,  birthdate as Birthday FROM RefTblCitizen WHERE(first_name LIKE '%" + txtSearchBox.Text + "%' OR last_name LIKE '%" + txtSearchBox.Text + "%' OR province LIKE '%" + txtSearchBox.Text + "%' OR email LIKE '%" + txtSearchBox.Text + "%' OR school LIKE '%" + txtSearchBox.Text + "%') AND citizen_is_deleted = 0;", sqlCon);
-
-                DataTable tbl = new DataTable();
-
-
-
-                da.Fill(tbl);
-
-
-                dataGridMain.DataSource = tbl;
-                dataGridMain.Columns[0].Visible = false;
-                dataGridMain.Columns[2].Visible = false;
-                dataGridMain.Columns[3].Visible = false;
-                dataGridMain.Columns[5].Width = 100;
-                dataGridMain.ReadOnly = true;
-
-                lblRecordCount.Text = dataGridMain.Rows.Count.ToString();
-
-                if (dataGridMain.RowCount == 0)
-                {
-                    txtNoRecords.Visible = true;
-                }
-                else
-                {
-                    txtNoRecords.Visible = false;
-                }
-
-            }
+            
         }
 
         private void btnSortCancel_Click(object sender, EventArgs e)
