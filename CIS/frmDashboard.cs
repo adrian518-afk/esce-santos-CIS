@@ -32,7 +32,7 @@ namespace CIS
             {
                 sqlCon.Open();
 
-                SqlDataAdapter da = new SqlDataAdapter(@"SELECT id, ISNULL(first_name,'') + ' ' + ISNULL(last_name,'') AS Name, first_name as FirstName, last_name as LastName, province AS Province, age AS Age, school as School, email as Email,  birthdate as Birthday FROM RefTblCitizen WHERE citizen_is_deleted = 0;", sqlCon);
+                SqlDataAdapter da = new SqlDataAdapter(@"SELECT id, ISNULL(first_name,'') + ' ' + ISNULL(last_name,'') AS Name, first_name AS FirstName, last_name AS LastName, province AS Province, birthdate as Birthday , school AS School, email AS Email, age AS Age FROM RefTblCitizen WHERE citizen_is_deleted = 0;", sqlCon);
 
                 DataTable tbl = new DataTable();
 
@@ -46,7 +46,7 @@ namespace CIS
                 dataGridMain.Columns[2].Visible = false;
                 dataGridMain.Columns[3].Visible = false;
                 dataGridMain.Columns[5].Visible = false;
-                dataGridMain.Columns[5].Width = 100;
+                dataGridMain.Columns[8].Width = 50;
                 dataGridMain.ReadOnly = true;
 
                 lblRecordCount.Text = dataGridMain.Rows.Count.ToString();
